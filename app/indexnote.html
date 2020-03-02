@@ -1,0 +1,134 @@
+<!-- 
+    installing webpack webpack-cli --save-dev
+    => npm install webpack webpack-cli --save-dev
+
+    To use webpack and bundle everything 
+    - create file name webpack.confi.js
+    => module.exports = {
+        entry: "./app/assets/scripts/App.js"
+    }
+
+    In package.json inside scripts
+    "name anything" : "webpack"
+
+    Run-> npm run dev
+
+    create a path to main folder
+    => inside webpack.confg.js 
+    => const path = require("path")
+    => output: {
+        filename: "name of the file.js",
+        path directory
+        path: path.resolve(__dirname, 'app')
+    },
+    to take care of the yellow warning message in cli 
+    mode: 'development',
+    watch will keep watching any changes we make in the folder
+    watch: true
+    
+    Popular new pre/post-processor 
+
+    Set up PostCSS syntax for text editor
+    => cmd + , then click the bending arrow file icon on the top right corner
+    add 
+    => "files.associations": {
+        "*.css": "scss"
+    }
+
+    Import styles.css from App.js
+    import "../styles/styles.css"
+
+    Css support for css webpack
+    npm install css-loader style-loader --save-dev
+
+    npm install postcss-loader --save-dev
+
+    npm install postcss-simple-vars postcss-nested autoprefixer --save-dev
+
+    npm install postcss-import --save-dev
+
+    To use css-loader, go to webpack.config
+    const postCSSPlugins = [
+        require('postcss-loader'),
+        require('postcss-nested'),
+        require('autoprefixer')
+    ]
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader','css-loader', 
+                {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
+            }
+        ]
+    }
+    Auto update css, html without reloading the page
+
+    npm install webpack-dev-server --save-dev
+    if occur error try to reset by 
+    run: sudo chown -R $(whoami) ~/.npm 
+
+    webpack.config to add and update on the fly
+
+    devServer: {
+        contentBase: path.join(__dirname, 'app'),
+        hot: true,
+        port: 3000
+    },
+    package.json to change 
+    "dev": "webpack-dev-server"
+
+    need to update App.js 
+    if( module.hot) {
+        module.hot.accept()
+    }
+
+    To auto refresh HTML file 
+
+    before: function(app, server) {
+        server._watch('./app/**/*.html')
+    }
+
+    To look for window ip address
+    -> ipconfig
+
+    To view on any device via same network
+    go to network and take note of ip addreess then :3000
+
+
+
+    
+
+ -->
+
+ <!-- 
+    check node is installed in your computer
+    => node -v
+    install node in your folder
+    => npm init -y
+    that will create package.json and package-lock for installing grocery store
+    => npm install lodash
+    => npm install normalize.css
+    run node without automation 
+    => node test.js
+        
+
+    create file and callback function in the file 
+    fs.writeFile(__dirname + "/index2.html", "<h1>HTML code</h1>" function(error){
+        if(error) {
+            return console.log(error)
+        }else {
+            return console.log("congrat!")
+        }
+    })
+
+    check git branch 
+    => git branch
+
+    check git status for which file wanna commit to staging area
+    => git add path-to-the-file
+    or  to add all files at once
+    => git add -A
+    or remove a file from staging area
+    => git reset path-to-the-file
+ -->
